@@ -1,0 +1,43 @@
+{
+  "name": "vera",
+  "version": "0.0.1",
+  "private": true,
+  "description": "New Swagger API Project",
+  "keywords": [],
+  "author": "cat",
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "array.prototype.find": "^2.0.0",
+    "body-parser": "^1.15.0",
+    "consul": "^0.34.1",
+    "cookie-parser": "^1.4.3",
+    "deepmerge": "^2.2.1",
+    "express": "^4.16.4",
+    "jwt-verifier-client": "^1.0.4",
+    "moment": "^2.17.1",
+    "newrelic": "^4.9.0",
+    "node-cache": "^4.1.0",
+    "node-itach": "^1.1.0",
+    "q": "^1.4.1",
+    "redis": "^2.6.2",
+    "request": "^2.75.0",
+    "request-debug": "^0.2.0",
+    "superagent": "^4.0.0",
+    "superagent-proxy": "^2.0.0",
+    "swagger-express-mw": "^0.7.0",
+    "swagger-tools": "^0.10.1",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "supertest": "^3.3.0",
+    "swagger-parser": "^6.0.2"
+  },
+  "scripts": {
+    "test": "mocha -b",
+    "start": "node app.js"
+  }
+}

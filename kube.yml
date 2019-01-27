@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentinel-ip2ir
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: ip2ir
+    context: sentinel-services
+    version: v1
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sentinel-ip2ir
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ip2ir
+        context: sentinel-services
+        version: v1
+    spec:
+      containers:
+        -
+          name: sentinel-ip2ir
+          image: docker.steventaylor.me/sentinel/services/ip2ir/ip2ir-x86_64:latest
+          imagePullPolicy: Always
+          env:
+          - name: PORT
+            value: "5000"
+          - name: CONSUL
+            value: "consul"
+          ports:
+            -
+              containerPort: 5000
+              protocol: TCP
+      imagePullSecrets:
+      - name: regcred
+      nodeSelector:
+          beta.kubernetes.io/arch: amd64
